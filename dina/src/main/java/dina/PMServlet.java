@@ -41,14 +41,16 @@ public class PMServlet extends HttpServlet {
 		
 		printWriter.print("</head>");
 		
-		printWriter.print("<body>");
+		printWriter.print("<body bgcolor='lightblue'>");
 		
 		printWriter.print("<h1>");
 		printWriter.print("PM Info");
 		printWriter.print("</h1>");
 		
 		printWriter.print("<h3>");
+		printWriter.print("<u>");
 		printWriter.print("PM Name:" + pmName);
+		printWriter.print("</u>");
 		printWriter.print("</h3>");
 		
 		printWriter.print("<ul>");

@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.text.AbstractDocument.BranchElement;
 
 @WebServlet(loadOnStartup = 1, urlPatterns = ("/send"))
-public class DinakarServlet extends HttpServlet {
-	public DinakarServlet() {
-		System.out.println("no args DinakarServlet consts");
+public class CountryServlet extends HttpServlet {
+	public CountryServlet() {
+		System.out.println("no args CountryServlet consts");
 	}
 
 	@Override
@@ -25,7 +25,7 @@ public class DinakarServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Calling DinakarServlet doGet method");
+		System.out.println("Calling CountryServlet doGet method");
 
 		req.getRequestURL();
 		System.out.println("IP address" + req.getRemoteAddr());
@@ -52,9 +52,11 @@ public class DinakarServlet extends HttpServlet {
 		printWriter.print("Country Detail Page");
 		printWriter.print("</title>");
 		printWriter.print("</head>");
-		printWriter.print("<body>");
+		printWriter.print("<body bgcolor='lightblue'>");
 		printWriter.print("<h1>");
+		printWriter.print("<u>");
 		printWriter.println("Country info");
+		printWriter.print("</u>");
 		printWriter.print("</h1>");
 		printWriter.print("<h3>");
 		printWriter.print("<ol>");
@@ -83,7 +85,7 @@ public class DinakarServlet extends HttpServlet {
 		// printWriter.print("");
 
 //		printWriter.print("</br>");
-		printWriter.print("<input type='submit' value='Next'>");
+		printWriter.print("<input type='submit' value='Next' style='color:brown'>");
 		printWriter.print("</form>");
 		printWriter.print("</body>");
 		printWriter.print("</html>");
