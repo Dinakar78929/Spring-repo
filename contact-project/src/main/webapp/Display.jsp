@@ -16,9 +16,9 @@
 	<br> Type: ${sessionType}
 	<br> Description: ${sessionDescription}
 	<br>
-<form method="post" action="view">
-<input type="submit" value="ViewDetails">
-</form>
+	<form method="post" action="view">
+		<input type="submit" value="ViewDetails">
+	</form>
 
 
 </body>

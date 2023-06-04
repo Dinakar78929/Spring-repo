@@ -3,6 +3,8 @@ package com.xworkz.spring.repo;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Component;
 
 import com.xworkz.spring.dto.GardenDTO;
@@ -24,6 +26,7 @@ public class GardenRepositoryImpl implements GardenRepository{
 
 
 	@Override
+	@Transactional
 	public boolean save(GardenDTO dto) {
 		
 		return this.gardenDTOs.add(dto);
