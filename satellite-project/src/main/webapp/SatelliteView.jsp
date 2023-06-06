@@ -61,7 +61,7 @@ td, tr {
 		<br>
 		<c:forEach items="${collections}" var="item">
 			<tr>
-				<td>${item.satelliteName}</td>
+				<td style="font-size: 20px">${item.satelliteName}</td>
 				<td>${item.launchDate}</td>
 				<td>${item.orbitType}</td>
 				<td>${item.missionType}</td>

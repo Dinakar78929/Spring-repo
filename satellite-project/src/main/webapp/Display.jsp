@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Display Page</title>
 </head>
 <body>
 <h4 style="color: green;">${list}</h4>

@@ -1,13 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+label {
+	width:100px;
+	display: inline-block;
+	margin: 4px;
+}
+#form{
+border-radius: 10px;
+background:lightblue;
+color:black;
+width: 500px;
+padding: 4px;
+} 
+</style>
 <meta charset="ISO-8859-1">
 <title>Satelite Form Page</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color:white;">Navbar</a>
+      <a href="view">Go to view table</a>
+    </div>
+  </nav>
+</div>
 	<h1>Enter Satelite Details:</h1>
+	<h4 style="color:red;">${msg}</h4>
+	<c:forEach items="${errors}" var="item">
+	 <span style="color:red;">${item.defaultMessage} </span>
+	<br>
+	</c:forEach>
+	<div id="form">
 	<form action="save" method="post">
 	<div><label>Satellite Name:</label> 
 		<input type="text"  name="satelliteName" required></div>
@@ -57,8 +87,9 @@
 		<label>Agreement</label>
 		<input type="checkbox" name="agreement" value="agreed">
 		</div>
-		<input type="submit" value="Save">
+		<center><input type="submit" value="Save" ></center> 
 	</form>
+	</div>
 
 </body>
 </html>
