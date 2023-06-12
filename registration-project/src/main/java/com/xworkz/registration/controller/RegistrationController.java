@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.util.net.AprEndpoint.Sendfile;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,12 +25,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.xworkz.registration.dto.RegistrationDTO;
+import com.xworkz.registration.service.RegistrationService;
+import com.xworkz.registration.service.RegistrationServiceImpl;
 
 @Component
 @RequestMapping("/")
 public class RegistrationController {
 
 	private Collection<RegistrationDTO> registrationDTOs = new ArrayList<>();
+	@Autowired
+	private RegistrationService service;
 
 	public RegistrationController() {
 		System.out.println("No args RegistrationController const");
@@ -67,6 +73,7 @@ public class RegistrationController {
 				e.printStackTrace();
 			}
 			System.out.println("Data is Valid");
+			service.validateAndSave(dto);
 
 			this.registrationDTOs.add(dto);
 			System.out.println("Added the DTO into list");
@@ -102,4 +109,5 @@ public class RegistrationController {
 		model.addAttribute("dtos", this.registrationDTOs);
 		return "/RegistrationDetails.jsp";
 	}
+
 }

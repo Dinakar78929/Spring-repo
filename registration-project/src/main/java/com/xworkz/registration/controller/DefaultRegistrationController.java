@@ -9,6 +9,7 @@ public class DefaultRegistrationController {
 	public DefaultRegistrationController() {
 		System.out.println("No args DefaultRegistrationController const");
 	}
+
 	@RequestMapping("start")
 	private String onStart() {
 		System.out.println("Running on start method");
