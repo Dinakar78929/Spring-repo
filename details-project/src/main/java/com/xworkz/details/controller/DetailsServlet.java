@@ -16,8 +16,8 @@ import com.xworkz.details.service.DetailsServiceImpl;
 
 @WebServlet(loadOnStartup = 1, urlPatterns = ("/send"))
 public class DetailsServlet extends HttpServlet {
-	
-	private DetailsService detailsService=new DetailsServiceImpl();
+
+	private DetailsService detailsService = new DetailsServiceImpl();
 
 	public DetailsServlet() {
 		System.out.println("No args DetailsServlet const");
@@ -41,14 +41,14 @@ public class DetailsServlet extends HttpServlet {
 
 		System.out.println(detailsDTO.toString());
 		try {
-		boolean save1=this.detailsService.validateAndSave(detailsDTO);
-		System.out.println("DTO is validateAndSave:"+save1);
-		}catch(Exception e){
+			boolean save1 = this.detailsService.validateAndSave(detailsDTO);
+			System.out.println("DTO is validateAndSave:" + save1);
+		} catch (Exception e) {
 			e.printStackTrace();
-			
+
 		}
-		
-		RequestDispatcher dispatcher=req.getRequestDispatcher("Display.jsp");
+
+		RequestDispatcher dispatcher = req.getRequestDispatcher("Display.jsp");
 		dispatcher.forward(req, resp);
 	}
 

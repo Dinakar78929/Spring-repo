@@ -46,4 +46,5 @@ public class SatelliteDTO implements Serializable {
 	@NotNull
 	@Size(min = 1, max = 40, message = "agreement Size should be >2 and <40")
 	private String agreement;
+
 }
