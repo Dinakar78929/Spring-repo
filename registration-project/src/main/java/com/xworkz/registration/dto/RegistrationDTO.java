@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.Comparator;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 @Data
+@Slf4j
 public class RegistrationDTO implements Serializable, Comparable<RegistrationDTO> {
 	private String name;
 	private int age;

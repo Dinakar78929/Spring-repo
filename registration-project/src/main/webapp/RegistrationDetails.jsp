@@ -13,10 +13,22 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<h1>This is the Table to show all details</h1>
-	<h4>
-		<a href="Home.jsp">Home</a>
-	</h4>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+		<span class="container-fluid"> <a class="navbar-brand" href="#">
+				<img
+				src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/b09f3422542809.563146973698f.jpg"
+				alt="Avatar Logo" style="width: 60px;" class="rounded-pill">
+		</a>
+
+		</span> <span><a class="nav-link active" aria-current="page"
+			href="Home.jsp"> Home</a></span> <span><a class="nav-link"
+			href="RegisterPage.jsp">Register</a></span> <span><a class="nav-link"
+			href="CurrentSaved.jsp">Download</a></span> <span><a class="nav-link">ViewDetails</a></span>
+	</nav>
+
+	<h3 class="d-flex justify-content-center" style="color: brown">Details
+		of all registered Persons</h3>
 	<table class="table">
 		<tr>
 			<th>Name</th>
@@ -35,7 +47,7 @@
 				<td>${dto.contact}</td>
 				<td>${dto.address}</td>
 				<td><a target="_blank"
-					href="fileDownload?fileName=${dto.fileName}& contentType=${dto.contentType}">${dto.fileName}</a></td>
+					href="downloadFile?fileName=${dto.fileName}& contentType=${dto.contentType}">${dto.fileName}</a></td>
 			</tr>
 		</c:forEach>
 

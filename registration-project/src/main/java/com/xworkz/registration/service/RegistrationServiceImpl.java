@@ -9,16 +9,19 @@ import org.springframework.stereotype.Service;
 import com.xworkz.registration.dto.RegistrationDTO;
 import com.xworkz.registration.entity.RegistrationEntity;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class RegistrationServiceImpl implements RegistrationService {
 
 	@Override
 	public boolean validateAndSave(RegistrationDTO dto) {
-		System.out.println("Running validateAndSave method");
+		log.info("Running validateAndSave method");
 		RegistrationEntity entity = new RegistrationEntity();
 		BeanUtils.copyProperties(dto, entity);
-		System.out.println(entity);
+		log.info(""+entity);
 		return true;
 	}
 
-}
+} 

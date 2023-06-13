@@ -5,32 +5,37 @@ import javax.servlet.ServletRegistration.Dynamic;
 import javax.servlet.annotation.MultipartConfig;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-@MultipartConfig
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class RegistrationWebInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		System.out.println("Running getRootConfigClasses");
+		log.info("Running getRootConfigClasses");
 		return null;
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		System.out.println("Running getServletConfigClasses");
+		log.info("Running getServletConfigClasses");
 		return new Class[] { RegistrationConfiguration.class };
 	}
 
 	@Override
 	protected String[] getServletMappings() {
-		System.out.println("Running getServletMappings");
+		log.info("Running getServletMappings");
 		return new String[] { "/" };
 	}
 
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
-		int size = 10000000;
+		long size = 2147483648L;
+		int size1 = 235454645;
 		MultipartConfigElement configElement = new MultipartConfigElement("C:\\Users\\India\\Desktop\\Server\\temp\\",
-				size, size * 2, size / 2);
+				size, size * 2, size1 / 2);
+
 		registration.setMultipartConfig(configElement);
 	}
 

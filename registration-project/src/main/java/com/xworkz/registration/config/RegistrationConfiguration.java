@@ -12,17 +12,20 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Configuration
 @EnableWebMvc
+@Slf4j
 @ComponentScan("com.xworkz.registration")
 public class RegistrationConfiguration implements WebMvcConfigurer {
 	public RegistrationConfiguration() {
-		System.out.println("No args RegistrationConfiguration const");
+		log.info("No args RegistrationConfiguration const");
 	}
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		System.out.println("Running addViewControllers method ");
+		log.info("Running addViewControllers method ");
 		registry.addViewController("/").setViewName("start");
 	}
 
@@ -33,7 +36,7 @@ public class RegistrationConfiguration implements WebMvcConfigurer {
 
 	@Bean
 	public MultipartResolver multipartResolver() {
-		System.out.println("Registered multipartResolver ");
+		log.info("Registered multipartResolver ");
 		return new StandardServletMultipartResolver();
 	}
 }
