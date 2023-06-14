@@ -21,7 +21,7 @@
 		<appender-ref ref="FILE-OUT" />
 	</logger>
 
-	<logger name="com.xworkz.registration" level="debug"
+	<logger name="com.xworkz.contacts" level="debug"
 		additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
