@@ -95,23 +95,21 @@ label {
 			errAddress.style.color = 'red'
 		}
 	}
+	/* function forContact() {
+	var numContact = document.getElementById("contact");
+	console.log(numContact.value);
+	var errContact = document.getElementById("errContactMsg");
+	 errFirstName.innerHTML = '' 
+	if (numContact.value != '' && numContact.value != 0
+			&& numContact.value > 3 && numContact.value < 30) {
+		errContact.innerHTML = ''
 
-	 /* function forContact() {
-		var numContact = document.getElementById("contact");
-		console.log(numContact.value);
-		var errContact = document.getElementById("errContactMsg");
-		 errFirstName.innerHTML = '' 
-		if (numContact.value != '' && numContact.value != 0
-				&& numContact.value > 3 && numContact.value < 30) {
-			errContact.innerHTML = ''
+	} else {
 
-		} else {
-
-			errContact.innerHTML = "please enter valid contact"
-			errContact.style.color = 'red'
-		}
+		errContact.innerHTML = "please enter valid contact"
+		errContact.style.color = 'red'
+	}
 	} */
-	
 </script>
 </head>
 <body style="background-color: lightblue;">

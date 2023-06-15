@@ -13,14 +13,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.xworkz.contacts.config.ContactConfiguration;
+import com.xworkz.contacts.constant.ContactConstant;
 import com.xworkz.contacts.dto.ContactDTO;
 import com.xworkz.contacts.sevice.ContactService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 @RequestMapping("/")
 public class ContactContoller {
 	public ContactContoller() {
-		System.out.println("No args ContactContoller const");
+		log.info("No args ContactContoller const");
 	}
 
 	@Autowired
@@ -29,22 +34,22 @@ public class ContactContoller {
 	@PostMapping("/save")
 	public String onSave(ContactDTO dto, BindingResult bindingResult, Model model, MultipartFile file)
 			throws IOException {
-		System.out.println("Running onSave Method");
-		System.out.println("DTO is " + dto);
+		log.info("Running onSave Method");
+		log.info("DTO is " + dto);
 		model.addAttribute("dtos", dto);
 
 		if (bindingResult.hasErrors()) {
-			System.out.println("Data is invalid");
+			log.info("Data is invalid");
 			model.addAttribute("errors", bindingResult.getAllErrors());
-			bindingResult.getAllErrors().forEach(e -> System.out.println(e.getDefaultMessage()));
+			bindingResult.getAllErrors().forEach(e -> log.info(e.getDefaultMessage()));
 			return "/Register.jsp";
 		} else {
-			System.out.println(file.getName());
-			System.out.println(file.getContentType());
-			System.out.println(file.getSize());
-			System.out.println(file.getOriginalFilename());
-			System.out.println("Data is valid");
-			
+			log.info(file.getName());
+			log.info(file.getContentType());
+			log.info(""+file.getSize());
+			log.info(file.getOriginalFilename());
+			log.info("Data is valid");
+
 			dto.setFileName(System.currentTimeMillis() + "_" + file.getOriginalFilename());
 			dto.setContentType(file.getContentType());
 			dto.setSize(file.getSize());
@@ -52,8 +57,7 @@ public class ContactContoller {
 
 			service.validateAndSave(dto);
 
-			
-			File physicalFile = new File("C:\\Users\\India\\Desktop\\newserver\\" + file.getOriginalFilename());
+			File physicalFile = new File(ContactConstant.FILE_PATH + file.getOriginalFilename());
 
 			try (OutputStream outputStream = new FileOutputStream(physicalFile)) {
 				outputStream.write(file.getBytes());
@@ -68,7 +72,7 @@ public class ContactContoller {
 
 //	@GetMapping("/downloadFile")
 //	public void download(String fileName, String contentType, HttpServletResponse response) throws IOException {
-//		System.out.println("Running download method");
+//		log.info("Running download method");
 //		File file = new File("C:\\Users\\India\\Desktop\\newserver\\" + fileName);
 //		response.setContentType(contentType);
 //
@@ -87,7 +91,7 @@ public class ContactContoller {
 
 //	@GetMapping("/view")
 //	private String view() {
-//		System.out.println("Running view method");
+//		log.info("Running view method");
 //		return "/ViewDetails.jsp";
 //	}
 }

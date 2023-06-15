@@ -9,27 +9,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import com.xworkz.contacts.config.ContactConfiguration;
 import com.xworkz.contacts.dto.ContactDTO;
 import com.xworkz.contacts.entity.ContactEntity;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Repository
 @Component
+@Slf4j
 public class ContactRepositoryImpl implements ContactRepository {
 
 	@Autowired
 	private EntityManagerFactory factory;
-	
+
 	public ContactRepositoryImpl() {
-		System.out.println("no args ContactRepositoryImpl const");
+		log.info("no args ContactRepositoryImpl const");
 	}
 
-	 
 	@Override
 	public boolean save(ContactEntity entity) {
-		
+
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
-		System.out.println("Executing Save Method");
+		log.info("Executing Save Method");
 		transaction.begin();
 		manager.persist(entity);
 		transaction.commit();

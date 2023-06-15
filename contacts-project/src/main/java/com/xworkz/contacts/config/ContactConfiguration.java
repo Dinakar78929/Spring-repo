@@ -11,17 +11,20 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Configuration
 @EnableWebMvc
+@Slf4j
 @ComponentScan("com.xworkz.contacts")
 public class ContactConfiguration implements WebMvcConfigurer {
 	public ContactConfiguration() {
-		System.out.println("No args ContactConfiguration const");
+		log.info("No args ContactConfiguration const");
 	}
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		System.out.println("Running addViewControllers method");
+		log.info("Running addViewControllers method");
 		registry.addViewController("/").setViewName("/Home.jsp");
 	}
 
@@ -32,7 +35,7 @@ public class ContactConfiguration implements WebMvcConfigurer {
 
 	@Bean
 	public MultipartResolver multipartResolver() {
-		System.out.println("Ruuning multipartResolver");
+		log.info("Ruuning multipartResolver");
 		return new StandardServletMultipartResolver();
 	}
 
