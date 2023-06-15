@@ -1,20 +1,17 @@
 package com.xworkz.contacts.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
-@Component
+
 @Data
-@Controller
+@Entity
 @Table(name = "contact_table")
 public class ContactEntity {
 	@Id

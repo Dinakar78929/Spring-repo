@@ -1,20 +1,14 @@
 package com.xworkz.contacts.controller;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
-
-import javax.print.DocFlavor.BYTE_ARRAY;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -50,13 +44,15 @@ public class ContactContoller {
 			System.out.println(file.getSize());
 			System.out.println(file.getOriginalFilename());
 			System.out.println("Data is valid");
-			service.validateAndSave(dto);
-
+			
 			dto.setFileName(System.currentTimeMillis() + "_" + file.getOriginalFilename());
 			dto.setContentType(file.getContentType());
 			dto.setSize(file.getSize());
 			dto.setOriginalFileName(file.getOriginalFilename());
 
+			service.validateAndSave(dto);
+
+			
 			File physicalFile = new File("C:\\Users\\India\\Desktop\\newserver\\" + file.getOriginalFilename());
 
 			try (OutputStream outputStream = new FileOutputStream(physicalFile)) {
