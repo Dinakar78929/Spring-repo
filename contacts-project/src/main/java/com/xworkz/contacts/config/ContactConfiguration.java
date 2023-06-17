@@ -39,11 +39,10 @@ public class ContactConfiguration implements WebMvcConfigurer {
 		return new StandardServletMultipartResolver();
 	}
 
-	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
-		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-
-		return factoryBean;
-	}
+//	@Bean
+//	public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
+//		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
+//		return factoryBean;
+//	}
 
 }

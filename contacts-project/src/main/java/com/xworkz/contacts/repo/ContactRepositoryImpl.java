@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import com.xworkz.contacts.config.ContactConfiguration;
 import com.xworkz.contacts.dto.ContactDTO;
 import com.xworkz.contacts.entity.ContactEntity;
 
+import java.util.*;
 import lombok.extern.slf4j.Slf4j;
 
 @Repository
@@ -20,8 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ContactRepositoryImpl implements ContactRepository {
 
-	@Autowired
-	private EntityManagerFactory factory;
+//	@Autowired
+//	private EntityManagerFactory factory;
 
 	public ContactRepositoryImpl() {
 		log.info("no args ContactRepositoryImpl const");
@@ -29,7 +31,7 @@ public class ContactRepositoryImpl implements ContactRepository {
 
 	@Override
 	public boolean save(ContactEntity entity) {
-
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(null);
 		EntityManager manager = factory.createEntityManager();
 		EntityTransaction transaction = manager.getTransaction();
 		log.info("Executing Save Method");
@@ -38,6 +40,19 @@ public class ContactRepositoryImpl implements ContactRepository {
 		transaction.commit();
 		manager.close();
 		return true;
+	}
+
+	public List<ContactEntity> findByName(String name) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(null);
+		EntityManager manager = factory.createEntityManager();
+//		EntityTransaction transaction = manager.getTransaction();
+		System.out.println("executing findByName method");
+		Query query = manager.createNamedQuery("findByName");
+		query.setParameter("nm", "%" + name + "%");
+		List<ContactEntity> result = query.getResultList();
+		System.out.println("Result from repo:" + result);
+		manager.close();
+		return result;
 	}
 
 }

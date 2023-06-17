@@ -4,11 +4,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,6 +19,7 @@ import com.xworkz.contacts.config.ContactConfiguration;
 import com.xworkz.contacts.constant.ContactConstant;
 import com.xworkz.contacts.dto.ContactDTO;
 import com.xworkz.contacts.sevice.ContactService;
+import com.xworkz.contacts.sevice.ContactServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -46,7 +49,7 @@ public class ContactContoller {
 		} else {
 			log.info(file.getName());
 			log.info(file.getContentType());
-			log.info(""+file.getSize());
+			log.info("" + file.getSize());
 			log.info(file.getOriginalFilename());
 			log.info("Data is valid");
 
@@ -70,6 +73,20 @@ public class ContactContoller {
 
 	}
 
+	@GetMapping("/search")
+	public String onSearch(Model model, String name) {
+		System.out.println("Running onSearch method");
+		List<ContactDTO> list = service.findByName(name);
+		int count = list.size();
+		if (count != 0) {
+			model.addAttribute("lists", list);
+		} else {
+			model.addAttribute("msg", "No data found");
+		}
+		return "/ContactSearch.jsp";
+
+	}
+
 //	@GetMapping("/downloadFile")
 //	public void download(String fileName, String contentType, HttpServletResponse response) throws IOException {
 //		log.info("Running download method");
@@ -88,7 +105,7 @@ public class ContactContoller {
 //		inputStream.close();
 //		outputStream.flush();
 //	}
-
+//
 //	@GetMapping("/view")
 //	private String view() {
 //		log.info("Running view method");

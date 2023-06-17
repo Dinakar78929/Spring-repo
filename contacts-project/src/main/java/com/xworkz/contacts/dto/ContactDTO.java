@@ -1,5 +1,7 @@
 package com.xworkz.contacts.dto;
 
+import java.io.Serializable;
+
 import com.xworkz.contacts.config.ContactConfiguration;
 
 import lombok.Data;
@@ -7,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Data
 @Slf4j
-public class ContactDTO {
+public class ContactDTO implements Serializable {
 	private String fname;
 	private String email;
 	private long mobile;
@@ -16,5 +18,4 @@ public class ContactDTO {
 	private String contentType;
 	private long size;
 	private String originalFileName;
-
 }

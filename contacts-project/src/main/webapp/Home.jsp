@@ -37,6 +37,7 @@
 				</span> <span><a class="nav-link active" aria-current="page">
 						Home</a></span> <span><a class="nav-link" href="Register.jsp">Save
 						Contact</a></span>
+						<a class="nav-link" href="ContactSearch.jsp">Search</a>
 				<!-- <span><a class="nav-link" href="CurrentSaved.jsp">Download</a></span>
 				<span><a class="nav-link" href="showDetails">ViewDetails</a></span> -->
 

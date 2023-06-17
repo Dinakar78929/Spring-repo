@@ -37,8 +37,10 @@ label {
 		console.log(firstName.value);
 		var errFirstName = document.getElementById("errName");
 		/* errFirstName.innerHTML = '' */
-		if (firstName.value != '' && firstName.value.length > 3
-				&& firstName.value.length < 30) {
+		/* debugger; */
+		if (firstName.value != '' && firstName.value != null
+				&& firstName.value.length > 3 && firstName.value.length < 30) {
+			console.log('testing...');
 			errFirstName.innerHTML = ''
 
 		} else {
