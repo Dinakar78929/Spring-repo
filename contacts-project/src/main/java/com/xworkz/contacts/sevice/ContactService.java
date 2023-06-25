@@ -12,4 +12,6 @@ public interface ContactService {
 	default List<ContactDTO> findByName(String name) {
 		return Collections.EMPTY_LIST;
 	}
+
+	boolean delete(int id);
 }

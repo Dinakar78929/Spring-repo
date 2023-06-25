@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.xworkz.contacts.config.ContactConfiguration;
@@ -87,6 +88,12 @@ public class ContactContoller {
 
 	}
 
+//	@GetMapping("/delete")
+//	private void onDelete(@RequestParam int id) {
+//		System.out.println("Running delete method");
+//		service.delete(id);
+//		return "/ContactSearch.jsp";
+//	}
 //	@GetMapping("/downloadFile")
 //	public void download(String fileName, String contentType, HttpServletResponse response) throws IOException {
 //		log.info("Running download method");

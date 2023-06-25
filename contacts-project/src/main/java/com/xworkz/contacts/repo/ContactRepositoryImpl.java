@@ -55,4 +55,18 @@ public class ContactRepositoryImpl implements ContactRepository {
 		return result;
 	}
 
+	@Override
+	public boolean delete(int id) {
+		System.out.println("Executing delete method");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory(null);
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
+		ContactEntity contactEntity = manager.find(ContactEntity.class, id);
+		manager.remove(contactEntity);
+		transaction.commit();
+		manager.close();
+		return true;
+	}
+
 }

@@ -19,7 +19,8 @@
 	<h1>This is search page</h1>
 	<div>
 		<form action="search" method="get">
-			<input placeholder="search" type="text" name="name" required>
+			<input placeholder="search" type="text" name="name" required
+				>
 			<!-- <span id="errmsg"></span> -->
 			<input type="submit" value="Search">
 		</form>
@@ -36,11 +37,14 @@
 
 		<c:forEach items="${lists}" var="dto">
 			<tr>
+				<%-- <td>${dto.getId}</td> --%>
 				<td>${dto.fname}</td>
 				<td>${dto.email}</td>
 				<td>${dto.mobile}</td>
 				<td>${dto.comment}</td>
 				<td>${dto.fileName}</td>
+				<td><a href="delete?id=${id}"></a></td>
+
 			</tr>
 		</c:forEach>
 	</table>

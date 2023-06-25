@@ -35,4 +35,5 @@ public class ContactEntity {
 	private long size;
 	@Column(name = "c_originalFileName")
 	private String originalFileName;
+
 }

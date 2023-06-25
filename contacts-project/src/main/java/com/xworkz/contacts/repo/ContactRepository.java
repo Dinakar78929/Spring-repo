@@ -12,4 +12,6 @@ public interface ContactRepository {
 	default List<ContactEntity> findByName(String name) {
 		return Collections.EMPTY_LIST;
 	}
+
+	boolean delete(int id);
 }

@@ -47,7 +47,7 @@ public class ContactServiceImpl implements ContactService {
 		} else {
 			System.out.println("mail not found");
 		}
-		return true;
+		return this.repository.save(entity);
 	}
 
 	private boolean sendMail(String email) {
@@ -85,14 +85,30 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 	public List<ContactDTO> findByName(String name) {
+		
 		System.out.println("Running findByName method");
+		
 		List<ContactEntity> entity = this.repository.findByName(name);
+		
 		List<ContactDTO> dtos = entity.stream().map(ent -> {
+			
 			ContactDTO contactDTO = new ContactDTO();
+			
 			BeanUtils.copyProperties(ent, contactDTO);
+			
 			return contactDTO;
-		}).collect(Collectors.toList());
+		})
+				.collect(Collectors.toList());
+		
 		return dtos;
 
+	}
+
+	@Override
+	public boolean delete(int id) {
+		System.out.println("Running delete method");
+//		ContactEntity entity = new ContactEntity();
+//		BeanUtils.copyProperties(dto, entity);
+		return this.repository.delete(id);
 	}
 }
