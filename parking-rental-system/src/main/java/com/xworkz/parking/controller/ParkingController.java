@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.xworkz.parking.dto.ParkingDTO;
 import com.xworkz.parking.dto.ParkingInfoDTO;
+import com.xworkz.parking.dto.UserInfoDTO;
+import com.xworkz.parking.dto.UserParkingInfoDTO;
 import com.xworkz.parking.service.ParkingService;
 
 @Controller
@@ -47,5 +49,27 @@ public class ParkingController {
 		}
 		return "/parkingInfo.jsp";
 	}
+
+//	@PostMapping("/userSignIn")
+//	private String userSignIn(UserInfoDTO dto, Model model) {
+//		boolean save = service.validateaAndSave(dto);
+//		if (save) {
+//			model.addAttribute("parkingInfoSuccess", "Data Added succesfully");
+//		} else {
+//			model.addAttribute("parkingInfoError", "No Data Added");
+//		}
+//		return "/User.jsp";
+//	}
+//
+//	@PostMapping("/userSignIn")
+//	private String UserParkingInfo(UserParkingInfoDTO dto, Model model) {
+//		boolean save = service.validateaAndSave(dto);
+//		if (save) {
+//			model.addAttribute("parkingInfoSuccess", "Data Added succesfully");
+//		} else {
+//			model.addAttribute("parkingInfoError", "No Data Added");
+//		}
+//		return "/User.jsp";
+//	}
 
 }

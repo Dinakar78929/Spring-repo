@@ -11,7 +11,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "admin")
-@NamedQuery(name = "findByEmail", query = "select value from ParkingEntity as value where value.email=:byEmail")
+@NamedQuery(name = "findByEmail", query = "select aa from ParkingEntity aa where aa.email=:byEmail")
 @NamedQuery(name = "findAll", query = "select value from ParkingEntity as value")
 public class ParkingEntity {
 	@Id

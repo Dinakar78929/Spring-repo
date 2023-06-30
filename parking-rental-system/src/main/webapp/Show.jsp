@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home page</title>
+<title>Show Page</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -23,30 +23,13 @@
 						src="https://img.freepik.com/premium-vector/parking-space-icon-where-you-can-park-your-car-flat-vector-illustration-isolated-white-background_124715-1477.jpg?w=2000"
 						alt="Parking Logo" style="width: 60px;" class="rounded-pill">
 				</a>
-				</span> <span> <!-- <a class="nav-link active" aria-current="page"> -->
-					</a></span> <span><a class="nav-link" href="Admin.jsp">Admin</a></span> <a
-					class="nav-link" href="User.jsp">User</a>
-				<!-- <span><a class="nav-link" href="CurrentSaved.jsp">Download</a></span>
+				</span> <span><a> <!-- <a class="nav-link active" aria-current="page"> -->
+					</a></span> <span><a class="nav-link" href="Update.jsp">Update Page</a></span>
+					<!-- <span><a class="nav-link" href="CurrentSaved.jsp">Download</a></span>
 				<span><a class="nav-link" href="showDetails">ViewDetails</a></span> -->
-
 			</nav>
 		</div>
 	</header>
-	<h1>Welcome to our page</h1>
-	<br>
-	<br>
-	<br>
-	<h3>About US</h3>
-	<p>Established in year 2023, "this Parking system helps people to
-		make easy parking "</p>
-	<footer>
-		<div>
-			<img alt="footer-logo"
-				src="https://www.gipfelclimbing.com/wp-content/uploads/2018/04/footer-logo.png"
-				width="100px">
-		</div>
-	</footer>
+
 </body>
-
-
 </html>

@@ -15,6 +15,8 @@ import org.springframework.stereotype.Repository;
 import com.xworkz.parking.dto.ParkingInfoDTO;
 import com.xworkz.parking.entity.ParkingEntity;
 import com.xworkz.parking.entity.ParkingInfoEntity;
+import com.xworkz.parking.entity.UserInfoEntity;
+import com.xworkz.parking.entity.UserParkingInfoEntity;
 
 @Repository
 public class ParkingRepositoryImpl implements ParkingRepository {
@@ -53,5 +55,31 @@ public class ParkingRepositoryImpl implements ParkingRepository {
 		manager.close();
 		return true;
 	}
+
+//	@Override
+//	public boolean save(UserInfoEntity entity) {
+//		System.out.println("Running save method");
+//		EntityManagerFactory factory = Persistence.createEntityManagerFactory("com.xworkz");
+//		EntityManager manager = factory.createEntityManager();
+//		EntityTransaction transaction = manager.getTransaction();
+//		transaction.begin();
+//		manager.persist(entity);
+//		transaction.commit();
+//		manager.close();
+//		return true;
+//	}
+
+//	@Override
+//	public boolean save(UserParkingInfoEntity entity) {
+//		System.out.println("Running save method");
+//		EntityManagerFactory factory = Persistence.createEntityManagerFactory("com.xworkz");
+//		EntityManager manager = factory.createEntityManager();
+//		EntityTransaction transaction = manager.getTransaction();
+//		transaction.begin();
+//		manager.persist(entity);
+//		transaction.commit();
+//		manager.close();
+//		return true;
+//	}
 
 }

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Page</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -31,7 +31,7 @@ label {
 }
 </style>
 </head>
-<body class="text-center">
+<body class="text-center" style="background-color: lightblue;">
 	<header class="masthead mb-auto">
 		<div class="inner">
 

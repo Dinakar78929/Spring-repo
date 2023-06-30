@@ -9,8 +9,12 @@ import org.springframework.stereotype.Service;
 
 import com.xworkz.parking.dto.ParkingDTO;
 import com.xworkz.parking.dto.ParkingInfoDTO;
+import com.xworkz.parking.dto.UserInfoDTO;
+import com.xworkz.parking.dto.UserParkingInfoDTO;
 import com.xworkz.parking.entity.ParkingEntity;
 import com.xworkz.parking.entity.ParkingInfoEntity;
+import com.xworkz.parking.entity.UserInfoEntity;
+import com.xworkz.parking.entity.UserParkingInfoEntity;
 import com.xworkz.parking.repo.ParkingRepository;
 
 @Service
@@ -63,5 +67,23 @@ public class ParkingServiceImpl implements ParkingService {
 		System.out.println("Entity is:" + entity);
 		return this.repository.save(entity);
 	}
+
+//	@Override
+//	public boolean validateaAndSave(UserInfoDTO dto) {
+//		System.out.println("Executing validateaAndSave method");
+//		ParkingInfoEntity entity = new ParkingInfoEntity();
+//		BeanUtils.copyProperties(dto, entity);
+//		System.out.println("Entity is:" + entity);
+//		return this.repository.save(entity);
+//	}
+
+//	@Override
+//	public boolean validateaAndSave(UserParkingInfoDTO dto) {
+//		System.out.println("Executing validateaAndSave method");
+//		ParkingInfoEntity entity = new ParkingInfoEntity();
+//		BeanUtils.copyProperties(dto, entity);
+//		System.out.println("Entity is:" + entity);
+//		return this.repository.save(entity);
+//	}
 
 }

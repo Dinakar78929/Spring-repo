@@ -11,7 +11,7 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 </head>
-<body>
+<body class="text-center" style="background-color: lightblue;">
 	<header class="masthead mb-auto">
 		<div class="inner">
 
@@ -30,8 +30,12 @@
 		</div>
 	</header>
 	<h1>this is update page</h1>
-	<button>
+
+	<button type="submit">
 		<a href="parkingInfo.jsp">ParkingInfo</a>
+	</button>
+	<button type="submit">
+		<a href="Show.jsp">Display</a>
 	</button>
 </body>
 </html>

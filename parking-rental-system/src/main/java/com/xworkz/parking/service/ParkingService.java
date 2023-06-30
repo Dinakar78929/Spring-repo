@@ -4,7 +4,11 @@ import java.util.List;
 
 import com.xworkz.parking.dto.ParkingDTO;
 import com.xworkz.parking.dto.ParkingInfoDTO;
+import com.xworkz.parking.dto.UserInfoDTO;
+import com.xworkz.parking.dto.UserParkingInfoDTO;
 import com.xworkz.parking.entity.ParkingEntity;
+import com.xworkz.parking.entity.UserInfoEntity;
+import com.xworkz.parking.entity.UserParkingInfoEntity;
 
 public interface ParkingService {
 
@@ -13,4 +17,8 @@ public interface ParkingService {
 	boolean validateCredential(ParkingDTO dto);
 
 	boolean validateaAndSave(ParkingInfoDTO dto);
+
+//	boolean validateaAndSave(UserInfoDTO dto);
+
+	//boolean validateaAndSave(UserParkingInfoDTO dto);
 }
