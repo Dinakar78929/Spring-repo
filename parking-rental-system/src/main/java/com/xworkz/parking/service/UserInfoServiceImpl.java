@@ -13,6 +13,7 @@ import com.xworkz.parking.repo.UserInfoRepository;
 
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
+
 	@Autowired
 	private UserInfoRepository repository;
 
@@ -26,7 +27,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		UserInfoEntity userInfoEntity = new UserInfoEntity();
 		BeanUtils.copyProperties(dto1, userInfoEntity);
 		this.repository.save(userInfoEntity);
-		
+
 		UserParkingInfoEntity userParkingInfoEntity = new UserParkingInfoEntity();
 		BeanUtils.copyProperties(dto2, userParkingInfoEntity);
 		UserInfoEntity userEntity = repository.findByEmail(dto1.getEmail());

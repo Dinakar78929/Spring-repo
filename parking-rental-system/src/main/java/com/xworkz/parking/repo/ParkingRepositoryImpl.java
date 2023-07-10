@@ -1,5 +1,6 @@
 package com.xworkz.parking.repo;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -44,6 +45,20 @@ public class ParkingRepositoryImpl implements ParkingRepository {
 	}
 
 	@Override
+	public ParkingEntity findByEmail(String email) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("com.xworkz");
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("findByUserEmail");
+		query.setParameter("mail", email);
+		try {
+			Object obj = query.getSingleResult();
+			return (ParkingEntity) obj;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	@Override
 	public boolean save(ParkingInfoEntity entity) {
 		System.out.println("Running save method");
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("com.xworkz");
@@ -56,18 +71,36 @@ public class ParkingRepositoryImpl implements ParkingRepository {
 		return true;
 	}
 
-//	@Override
-//	public boolean save(UserInfoEntity entity) {
-//		System.out.println("Running save method");
-//		EntityManagerFactory factory = Persistence.createEntityManagerFactory("com.xworkz");
-//		EntityManager manager = factory.createEntityManager();
-//		EntityTransaction transaction = manager.getTransaction();
-//		transaction.begin();
-//		manager.persist(entity);
-//		transaction.commit();
-//		manager.close();
-//		return true;
-//	}
+	@Override
+	public List<ParkingInfoEntity> findByLocation(String location) {
+		System.out.println("Running findByLocation method");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("com.xworkz");
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("findByLocation");
+		query.setParameter("byLocation", "%" + location + "%");
+		List<ParkingInfoEntity> locationResult = query.getResultList();
+		/*
+		 * for (ParkingInfoEntity parkingInfoEntity : locationResult) {
+		 * System.out.println(parkingInfoEntity); }
+		 */
+		manager.close();
+		return locationResult;
+	}
+
+	public boolean updateByEmail(String email, LocalDateTime dateTime) {
+		System.out.println("Running updateLastDateTime method");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("com.xworkz");
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		transaction.begin();
+		Query query = manager.createNamedQuery("updateLoginTime");
+		query.setParameter("loginTime", dateTime);
+		query.setParameter("byEmail", email);
+		query.executeUpdate();
+		transaction.commit();
+		manager.close();
+		return false;
+	}
 
 //	@Override
 //	public boolean save(UserParkingInfoEntity entity) {

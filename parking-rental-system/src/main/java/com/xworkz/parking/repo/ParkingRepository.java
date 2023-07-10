@@ -1,5 +1,6 @@
 package com.xworkz.parking.repo;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.xworkz.parking.dto.ParkingInfoDTO;
@@ -13,7 +14,13 @@ public interface ParkingRepository {
 
 	boolean save(ParkingInfoEntity entity);
 
-//	boolean save(UserInfoEntity entity);
+	List<ParkingInfoEntity> findByLocation(String location);
+
+	ParkingEntity findByEmail(String email);
+
+	boolean updateByEmail(String email, LocalDateTime dateTime);
+	
+	//boolean updateLastDateTime(ParkingEntity entity);
 
 //	boolean save(UserParkingInfoEntity dto);
 }

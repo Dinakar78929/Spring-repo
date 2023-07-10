@@ -30,7 +30,7 @@ public class UserInfoRepositoryImpl implements UserInfoRepository {
 		manager.close();
 		return true;
 	}
-	
+
 	@Override
 	public boolean save(UserParkingInfoEntity entity) {
 		System.out.println("Running save method");
@@ -43,18 +43,19 @@ public class UserInfoRepositoryImpl implements UserInfoRepository {
 		manager.close();
 		return true;
 	}
-	
+
+	@Override
 	public UserInfoEntity findByEmail(String email) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("com.xworkz");
 		EntityManager manager = factory.createEntityManager();
 		Query query = manager.createNamedQuery("findByUserEmail");
 		query.setParameter("mail", email);
 		try {
-		Object obj = query.getSingleResult();
-		return (UserInfoEntity)obj;
-		}catch (Exception e) {
+			Object obj = query.getSingleResult();
+			return (UserInfoEntity) obj;
+		} catch (Exception e) {
 			return null;
-		} 
+		}
 	}
 
 }

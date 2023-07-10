@@ -3,6 +3,7 @@ package com.xworkz.parking.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Table(name = "parking_info")
+@NamedQuery(name = "findByLocation", query = "select locationValue from ParkingInfoEntity locationValue where locationValue.location like :byLocation")
 public class ParkingInfoEntity {
 	@Id
 	@Column(name = "p_id")

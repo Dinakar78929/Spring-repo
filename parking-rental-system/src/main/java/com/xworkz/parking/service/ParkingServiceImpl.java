@@ -1,5 +1,6 @@
 package com.xworkz.parking.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,8 +42,11 @@ public class ParkingServiceImpl implements ParkingService {
 	@Override
 	public boolean validateCredential(ParkingDTO dto) {
 		System.out.println("Executing validateCredential method");
+			
 		if (dto != null) {
 			System.out.println("dto is not null");
+			System.out.println(dto.getEmail());
+			ParkingEntity entity = this.repository.findByEmail(dto.getEmail());
 			List<ParkingEntity> list = repository.findAll();
 			for (ParkingEntity parkingEntity : list) {
 				if (parkingEntity.getEmail().equals(dto.getEmail())
@@ -54,7 +58,7 @@ public class ParkingServiceImpl implements ParkingService {
 			}
 		} else {
 			System.out.println("DTO is null");
-			return false;
+
 		}
 		return false;
 	}
@@ -66,6 +70,21 @@ public class ParkingServiceImpl implements ParkingService {
 		BeanUtils.copyProperties(dto, entity);
 		System.out.println("Entity is:" + entity);
 		return this.repository.save(entity);
+	}
+
+	@Override
+	public List<ParkingInfoDTO> findByLocation(String location) {
+		System.out.println("Executing findByLocation method in ParkingServiceImpl");
+		List<ParkingInfoEntity> entities = this.repository.findByLocation(location);
+		List<ParkingInfoDTO> dtos = entities.stream().map(ent -> {
+
+			ParkingInfoDTO parkingDTO = new ParkingInfoDTO();
+
+			BeanUtils.copyProperties(ent, parkingDTO);
+
+			return parkingDTO;
+		}).collect(Collectors.toList());
+		return dtos;
 	}
 
 //	@Override

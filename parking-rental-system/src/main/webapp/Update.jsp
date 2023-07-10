@@ -11,7 +11,7 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
 </head>
-<body class="text-center" style="background-color: lightblue;">
+<body class="text-center">
 	<header class="masthead mb-auto">
 		<div class="inner">
 
@@ -29,13 +29,37 @@
 			</nav>
 		</div>
 	</header>
-	<h1>this is update page</h1>
+	<h1>This is update page</h1>
 
-	<button type="submit">
-		<a href="parkingInfo.jsp">ParkingInfo</a>
-	</button>
-	<button type="submit">
-		<a href="Show.jsp">Display</a>
-	</button>
+
+	<a href="parkingInfo.jsp"><button type="submit">ParkingInfo</button></a>
+
+
+	<a href="Show.jsp"><button type="submit">Display</button></a>
+
+	<!-- <form action="next" method="get">
+		<input type="submit" value="ParkingInfo">
+	</form> -->
+	<footer>
+			<div
+				class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+				<!-- Copyright -->
+				<div class="text-white mb-3 mb-md-0">Copyright © 2020. All
+					rights reserved.</div>
+				<!-- Copyright -->
+
+				<!-- Right -->
+				<div>
+					<a href="#!" class="text-white me-4"> <i
+						class="fab fa-facebook-f"></i>
+					</a> <a href="#!" class="text-white me-4"> <i
+						class="fab fa-twitter"></i>
+					</a> <a href="#!" class="text-white me-4"> <i class="fab fa-google"></i>
+					</a> <a href="#!" class="text-white"> <i class="fab fa-linkedin-in"></i>
+					</a>
+				</div>
+				<!-- Right -->
+			</div>
+		</footer>
 </body>
 </html>
