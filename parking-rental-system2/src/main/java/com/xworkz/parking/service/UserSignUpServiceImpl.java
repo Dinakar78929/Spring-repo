@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xworkz.parking.dto.UserSignUpDTO;
+import com.xworkz.parking.dto.VerifyOTP;
 import com.xworkz.parking.entity.UserSignUpEntity;
 import com.xworkz.parking.repo.UserSignUpRepository;
 import com.xworkz.parking.util.SendMail;
@@ -29,4 +30,17 @@ public class UserSignUpServiceImpl implements UserSignUpService {
 		this.repository.updateOtpByEmail(entity2.getEmail(), SendMail.otp);
 		return save;
 	}
+
+	@Override
+	public boolean verifyOtp(UserSignUpDTO dto) {
+		log.info("Running verifyOtp method in UserSignUpServiceImpl");
+		UserSignUpEntity entity1 = this.repository.findByOTP(dto.getOtp());
+		UserSignUpEntity entity2 = this.repository.findByEmail(entity1.getEmail());
+		if (dto.getOtp().equals(entity2.getOtp())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 }

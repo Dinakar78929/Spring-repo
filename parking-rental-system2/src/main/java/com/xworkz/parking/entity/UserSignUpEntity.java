@@ -21,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Table(name = "user_sign_up")
 @NamedQuery(name = "findByUserSignUpEmail", query = "select value from UserSignUpEntity as value where value.email=:byUserSignUpEmail")
 @NamedQuery(name = "updateOtp", query = "update UserSignUpEntity value set value.otp=:updateOtp where value.email=:byUserSignUpEmail")
+@NamedQuery(name = "findByOTP", query = "select value from UserSignUpEntity as value where value.otp=:byUserOtp")
 public class UserSignUpEntity {
 	@Id
 	@Column(name = "user_id")

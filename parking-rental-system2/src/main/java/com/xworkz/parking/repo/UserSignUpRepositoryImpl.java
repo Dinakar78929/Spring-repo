@@ -61,4 +61,20 @@ public class UserSignUpRepositoryImpl implements UserSignUpRepository {
 		return true;
 	}
 
+	@Override
+	public UserSignUpEntity findByOTP(String otp) {
+		log.info("Running findByEmail in  UserSignUpRepositoryImpl");
+		EntityManager manager = factory.createEntityManager();
+		Query query = manager.createNamedQuery("findByOTP");
+		query.setParameter("byUserOtp", otp);
+
+		Object object = query.getSingleResult();
+		if (object != null) {
+			UserSignUpEntity entity = (UserSignUpEntity) object;
+			return entity;
+		} else {
+			return null;
+		}
+
+	}
 }

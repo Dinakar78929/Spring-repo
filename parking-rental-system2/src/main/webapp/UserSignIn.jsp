@@ -14,6 +14,8 @@
 
 	<h4 style="color: green">${success}</h4>
 	<h4 style="color: red">${failure }</h4>
+	<h4 style="color: green">${verifiedSuccessfully}</h4>
+	<h4 style="color: red">${verificationFailure}</h4>
 	<form action="UserSignIn" method="post">
 		<div>
 			<label>Email:</label> <input type="email" name="email">
